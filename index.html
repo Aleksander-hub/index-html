@@ -3,32 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мой сайт</title>
+    <title>Меню</title>
     <style>
-        body {
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
             font-family: Arial, sans-serif;
+        }
+        body {
+            background-color: #f8f8f8;
             text-align: center;
-            margin: 50px;
+            padding: 20px;
         }
         h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
             color: #333;
         }
-        a {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
+        .menu {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            max-width: 400px;
+            margin: 0 auto;
         }
-        a:hover {
-            background-color: #0056b3;
+        .menu img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+        .menu img:hover {
+            transform: scale(1.05);
         }
     </style>
 </head>
 <body>
-    <h1>Добро пожаловать!</h1>
-    <p>Это стартовая страница.</p>
-    <a href="https://example.com">Перейти</a>
+    <h1>Меню</h1>
+    <div class="menu">
+        <img src="menu1.jpg" alt="Блюдо 1">
+        <img src="menu2.jpg" alt="Блюдо 2">
+        <img src="menu3.jpg" alt="Блюдо 3">
+        <img src="menu4.jpg" alt="Блюдо 4">
+    </div>
 </body>
 </html>
