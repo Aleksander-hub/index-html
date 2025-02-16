@@ -12,9 +12,20 @@
             font-family: Arial, sans-serif;
         }
         body {
-            background-color: #e0e5ec;
+            background: url('background.jpg') no-repeat center center/cover;
             text-align: center;
             padding: 20px;
+            position: relative;
+        }
+        .background-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('background.jpg') no-repeat center center/cover;
+            filter: blur(5px);
+            z-index: -1;
         }
         h1 {
             margin-bottom: 20px;
@@ -24,15 +35,19 @@
         }
         .menu {
             display: flex;
+            flex-direction: column;
             gap: 10px;
             max-width: 100%;
-            overflow-x: auto;
+            overflow-y: auto;
             padding: 5px;
-            justify-content: center;
+            align-items: center;
+            max-height: 500px;
+            position: relative;
+            z-index: 1;
         }
         .menu img {
             width: auto;
-            height: 350px;
+            height: 150px;
             border-radius: 15px;
             box-shadow: 6px 6px 12px #babecc, -6px -6px 12px #ffffff;
             transition: transform 0.3s, box-shadow 0.3s;
@@ -44,6 +59,7 @@
     </style>
 </head>
 <body>
+    <div class="background-overlay"></div>
     <h1>Меню</h1>
     <div class="menu">
         <img src="menu1.jpg" alt="Блюдо 1">
