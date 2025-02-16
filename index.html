@@ -12,7 +12,7 @@
             font-family: Arial, sans-serif;
         }
         body {
-            background-color: #f8f8f8;
+            background-color: #e0e5ec;
             text-align: center;
             padding: 20px;
         }
@@ -20,23 +20,25 @@
             margin-bottom: 20px;
             font-size: 24px;
             color: #333;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
         }
         .menu {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
+            gap: 15px;
             max-width: 400px;
             margin: 0 auto;
         }
         .menu img {
             width: 100%;
             height: auto;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s;
+            border-radius: 15px;
+            box-shadow: 6px 6px 12px #babecc, -6px -6px 12px #ffffff;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
         .menu img:hover {
             transform: scale(1.05);
+            box-shadow: 8px 8px 16px #babecc, -8px -8px 16px #ffffff;
         }
     </style>
 </head>
