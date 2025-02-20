@@ -113,12 +113,21 @@
             box-sizing: border-box;
             font-family: Arial, sans-serif;
         }
+        
+
         body {
-            background: url('background.jpg') no-repeat center center/cover;
+            background: url('background.jpg') no-repeat center center;
+            background-size: cover; /* Это растягивает фон на весь экран */
             text-align: center;
             padding: 20px;
             position: relative;
+            min-height: 100vh; /* Обеспечит, чтобы фон занимал весь экран, даже если контента мало */
         }
+
+        
+    
+
+        
         .background-overlay {
             position: fixed;
             top: 0;
