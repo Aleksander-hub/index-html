@@ -63,7 +63,7 @@
 </div>
 
 
-    <h1>Меню</h1>
+<h1>Меню</h1>
 <div class="menu">
     <div class="menu-item">
         <img src="menu1.jpg" alt="Блюдо 1" onclick="openFullscreen(this.src)">
@@ -83,26 +83,44 @@
     </div>
 </div>
 
+<!-- Модальное окно для увеличенного изображения -->
+<div id="fullscreen" class="fullscreen" onclick="closeFullscreen()">
+    <img id="fullscreen-img" src="" alt="Увеличенное изображение">
+</div>
+
 <style>
-    .ad-container {
-        overflow-x: auto;
-        white-space: nowrap;
-        padding: 10px 0;
+    .fullscreen {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        justify-content: center;
+        align-items: center;
     }
-    .ad-images {
-        display: inline-flex;
-        gap: 10px;
-    }
-    .ad-images img {
-        width: 150px;
-        height: auto;
+    .fullscreen img {
+        max-width: 90%;
+        max-height: 90%;
         border-radius: 10px;
-        cursor: pointer;
-        transition: transform 0.3s;
     }
-    .ad-images img:hover {
-        transform: scale(1.1);
+    .fullscreen.active {
+        display: flex;
     }
+</style>
+
+<script>
+    function openFullscreen(src) {
+        const fullscreenDiv = document.getElementById('fullscreen');
+        const fullscreenImg = document.getElementById('fullscreen-img');
+        fullscreenImg.src = src;
+        fullscreenDiv.classList.add('active');
+    }
+    function closeFullscreen() {
+        document.getElementById('fullscreen').classList.remove('active');
+    }
+</script>
 
 
     
