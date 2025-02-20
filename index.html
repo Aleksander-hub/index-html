@@ -7,8 +7,8 @@
     <script>
         // Внизу кода будут храниться переменные с описаниями для каждого блюда
         const descriptions = {
-            dish1: "Описание блюда 1: Маркер текста, подробное описание блюда. Например, это сытное и вкусное блюдо, которое можно есть с хлебом. аркер текста, подробное описание блюда,сытное и полезное аркер текста, подробное описание блюда, сытное и полезное",
-            dish2: "Описание блюда 2: Маркер текста, подробное описание блюда, сытное и полезное.аркер текста, подробное описание блюда, сытное и полезное аркер текста, подробное описание блюда, сытное и полезное",
+            dish1: "Описание блюда 1: Маркер текста, подробное описание блюда. Например, это сытное и вкусное блюдо, которое можно есть с хлебом.",
+            dish2: "Описание блюда 2: Маркер текста, подробное описание блюда, сытное и полезное.",
             dish3: "Описание блюда 3: Маркер текста, это блюдо идеально подходит для ужина с друзьями.",
             dish4: "Описание блюда 4: Маркер текста, здесь мы используем свежие ингредиенты для создания этого великолепного блюда."
         };
@@ -87,22 +87,22 @@
 
 <!-- Новый раздел "Реклама" -->
 <div class="advertisement">
-    
-    <div class="carousel">
-        <button class="carousel-btn left" onclick="moveCarousel(-1)">&#10094;</button>
-        <div class="carousel-images">
+    <h2>Реклама</h2>
+    <div class="ad-container">
+        <div class="ad-images">
             <img src="ad1.jpg" alt="Реклама 1" onclick="openFullscreen(this.src)">
             <img src="ad2.jpg" alt="Реклама 2" onclick="openFullscreen(this.src)">
             <img src="ad3.jpg" alt="Реклама 3" onclick="openFullscreen(this.src)">
             <img src="ad4.jpg" alt="Реклама 4" onclick="openFullscreen(this.src)">
             <img src="ad5.jpg" alt="Реклама 5" onclick="openFullscreen(this.src)">
         </div>
-        <button class="carousel-btn right" onclick="moveCarousel(1)">&#10095;</button>
     </div>
 </div>
 
-<!-- Основное меню -->
+
     <h1>Меню</h1>
+
+<!-- Основное меню -->
 <div class="menu">
     <div class="menu-item">
         <img src="menu1.jpg" alt="Блюдо 1" onclick="openFullscreen(this.src)">
@@ -122,32 +122,29 @@
     </div>
 </div>
 
-<script>
-    // Сюда вставляем функцию для прокрутки карусели
-    let currentIndex = 0;
-
-    function moveCarousel(direction) {
-        const carouselImages = document.querySelector('.carousel-images');
-        const totalImages = carouselImages.children.length;
-        
-        // Рассчитываем новый индекс
-        currentIndex += direction;
-
-        // Если индекс выходит за пределы, то его нужно обернуть
-        if (currentIndex < 0) {
-            currentIndex = totalImages - 1; // Перемещаемся к последнему изображению
-        } else if (currentIndex >= totalImages) {
-            currentIndex = 0; // Перемещаемся к первому изображению
-        }
-
-        // Сдвигаем карусель
-        const offset = -currentIndex * (carouselImages.children[0].offsetWidth + 20); // 20px это отступ между изображениями
-        carouselImages.style.transform = `translateX(${offset}px)`;
+<style>
+    .ad-container {
+        overflow-x: auto;
+        white-space: nowrap;
+        padding: 10px 0;
     }
-</script>
+    .ad-images {
+        display: inline-flex;
+        gap: 10px;
+    }
+    .ad-images img {
+        width: 150px;
+        height: auto;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: transform 0.3s;
+    }
+    .ad-images img:hover {
+        transform: scale(1.1);
+    }
 
 
-    <style>
+    
         * {
             margin: 0;
             padding: 0;
@@ -295,9 +292,7 @@
 .carousel-btn.right {
     right: 10px;
 }
-
-
-
+        
     </style>
 </body>
 </html>
