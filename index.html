@@ -5,6 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Меню</title>
     <style>
+        
+        
+    </style>
+    <script>
+        function openFullscreen(src) {
+            const fullscreenDiv = document.getElementById('fullscreen');
+            const fullscreenImg = document.getElementById('fullscreen-img');
+            fullscreenImg.src = src;
+            fullscreenDiv.style.display = 'flex';
+        }
+        function closeFullscreen() {
+            document.getElementById('fullscreen').style.display = 'none';
+        }
+    </script>
+</head>
+<body>
+    <div class="background-overlay"></div>
+    <h1>Меню</h1>
+    <div class="menu">
+        <img src="menu1.jpg" alt="Блюдо 1" onclick="openFullscreen(this.src)">
+        <img src="menu2.jpg" alt="Блюдо 2" onclick="openFullscreen(this.src)">
+        <img src="menu3.jpg" alt="Блюдо 3" onclick="openFullscreen(this.src)">
+        <img src="menu4.jpg" alt="Блюдо 4" onclick="openFullscreen(this.src)">
+    </div>
+    <div id="fullscreen" class="fullscreen-img" onclick="closeFullscreen()">
+        <img id="fullscreen-img" src="" alt="Fullscreen Image">
+    </div>
+</body>
+</html>
+
+
         * {
             margin: 0;
             padding: 0;
@@ -71,30 +102,3 @@
             max-height: 90%;
             border-radius: 15px;
         }
-    </style>
-    <script>
-        function openFullscreen(src) {
-            const fullscreenDiv = document.getElementById('fullscreen');
-            const fullscreenImg = document.getElementById('fullscreen-img');
-            fullscreenImg.src = src;
-            fullscreenDiv.style.display = 'flex';
-        }
-        function closeFullscreen() {
-            document.getElementById('fullscreen').style.display = 'none';
-        }
-    </script>
-</head>
-<body>
-    <div class="background-overlay"></div>
-    <h1>Меню</h1>
-    <div class="menu">
-        <img src="menu1.jpg" alt="Блюдо 1" onclick="openFullscreen(this.src)">
-        <img src="menu2.jpg" alt="Блюдо 2" onclick="openFullscreen(this.src)">
-        <img src="menu3.jpg" alt="Блюдо 3" onclick="openFullscreen(this.src)">
-        <img src="menu4.jpg" alt="Блюдо 4" onclick="openFullscreen(this.src)">
-    </div>
-    <div id="fullscreen" class="fullscreen-img" onclick="closeFullscreen()">
-        <img id="fullscreen-img" src="" alt="Fullscreen Image">
-    </div>
-</body>
-</html>
