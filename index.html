@@ -32,42 +32,6 @@
                     <meta charset="UTF-8">
                     <meta name="viewport" content="width=device-width, initial-scale=1.0">
                     <title>${title}</title>
-                    <style>
-                        body {
-                            font-family: Arial, sans-serif;
-                            text-align: center;
-                            padding: 20px;
-                        }
-                        img {
-                            max-width: 90%;
-                            height: auto;
-                            border-radius: 15px;
-                            margin-bottom: 20px;
-                        }
-                        h1 {
-                            font-size: 24px;
-                            color: #333;
-                        }
-                        p {
-                            font-size: 18px;
-                            color: #555;
-                        }
-                        .btn {
-                            display: inline-block;
-                            margin-top: 20px;
-                            padding: 10px 20px;
-                            font-size: 18px;
-                            color: #fff;
-                            background: #007bff;
-                            border: none;
-                            border-radius: 5px;
-                            cursor: pointer;
-                            text-decoration: none;
-                        }
-                        .btn:hover {
-                            background: #0056b3;
-                        }
-                    </style>
                 </head>
                 <body>
                     <h1>${title}</h1>
@@ -87,7 +51,6 @@
 
 <!-- Новый раздел "Реклама" -->
 <div class="advertisement">
-    <h2>Реклама</h2>
     <div class="ad-container">
         <div class="ad-images">
             <img src="ad1.jpg" alt="Реклама 1" onclick="openFullscreen(this.src)">
@@ -101,8 +64,6 @@
 
 
     <h1>Меню</h1>
-
-<!-- Основное меню -->
 <div class="menu">
     <div class="menu-item">
         <img src="menu1.jpg" alt="Блюдо 1" onclick="openFullscreen(this.src)">
@@ -292,7 +253,42 @@
 .carousel-btn.right {
     right: 10px;
 }
-        
+
+
+                        body {
+                            font-family: Arial, sans-serif;
+                            text-align: center;
+                            padding: 20px;
+                        }
+                        img {
+                            max-width: 90%;
+                            height: auto;
+                            border-radius: 15px;
+                            margin-bottom: 20px;
+                        }
+                        h1 {
+                            font-size: 24px;
+                            color: #333;
+                        }
+                        p {
+                            font-size: 18px;
+                            color: #555;
+                        }
+                        .btn {
+                            display: inline-block;
+                            margin-top: 20px;
+                            padding: 10px 20px;
+                            font-size: 18px;
+                            color: #fff;
+                            background: #007bff;
+                            border: none;
+                            border-radius: 5px;
+                            cursor: pointer;
+                            text-decoration: none;
+                        }
+                        .btn:hover {
+                            background: #0056b3;
+                        }
     </style>
 </body>
 </html>
