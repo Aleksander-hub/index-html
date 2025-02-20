@@ -63,6 +63,7 @@
 </div>
 
 
+
 <h1>Меню</h1>
 <div class="menu">
     <div class="menu-item">
@@ -100,11 +101,13 @@
         justify-content: center;
         align-items: center;
     }
+
     .fullscreen img {
         max-width: 90%;
         max-height: 90%;
         border-radius: 10px;
     }
+
     .fullscreen.active {
         display: flex;
     }
@@ -117,10 +120,12 @@
         fullscreenImg.src = src;
         fullscreenDiv.classList.add('active');
     }
+
     function closeFullscreen() {
         document.getElementById('fullscreen').classList.remove('active');
     }
 </script>
+
 
 
     
