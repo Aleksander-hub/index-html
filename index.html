@@ -5,12 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Меню</title>
     <script>
+        // Внизу кода будут храниться переменные с описаниями для каждого блюда
+        const descriptions = {
+            dish1: "Описание блюда 1: Маркер текста, подробное описание блюда. Например, это сытное и вкусное блюдо, которое можно есть с хлебом.",
+            dish2: "Описание блюда 2: Маркер текста, подробное описание блюда, сытное и полезное.",
+            dish3: "Описание блюда 3: Маркер текста, это блюдо идеально подходит для ужина с друзьями.",
+            dish4: "Описание блюда 4: Маркер текста, здесь мы используем свежие ингредиенты для создания этого великолепного блюда."
+        };
+
         function openFullscreen(src) {
             const fullscreenDiv = document.getElementById('fullscreen');
             const fullscreenImg = document.getElementById('fullscreen-img');
             fullscreenImg.src = src;
             fullscreenDiv.classList.add('active');
         }
+
         function closeFullscreen() {
             document.getElementById('fullscreen').classList.remove('active');
         }
@@ -55,13 +64,16 @@
                             cursor: pointer;
                             text-decoration: none;
                         }
+                        .btn:hover {
+                            background: #0056b3;
+                        }
                     </style>
                 </head>
                 <body>
                     <h1>${title}</h1>
                     <img src="${imageSrc}" alt="${title}">
                     <p>${description}</p>
-                    <a href="index.html" class="btn">Вернуться в основное меню</a>
+                    <button class="btn" onclick="window.close()">Вернуться в основное меню</button>
                 </body>
                 </html>
             `);
@@ -70,27 +82,26 @@
     </script>
 </head>
 <body>
-    <div class="background-overlay"></div>
     <h1>Меню</h1>
     <div class="menu">
         <div class="menu-item">
             <img src="menu1.jpg" alt="Блюдо 1" onclick="openFullscreen(this.src)">
-            <button class="btn" onclick="openProductPage('menu1.jpg', 'Блюдо 1', 'Описание блюда 1')">Подробнее</button>
+            <button class="btn" onclick="openProductPage('menu1.jpg', 'Блюдо 1', descriptions.dish1)">Подробнее</button>
         </div>
         <div class="menu-item">
             <img src="menu2.jpg" alt="Блюдо 2" onclick="openFullscreen(this.src)">
-            <button class="btn" onclick="openProductPage('menu2.jpg', 'Блюдо 2', 'Описание блюда 2')">Подробнее</button>
+            <button class="btn" onclick="openProductPage('menu2.jpg', 'Блюдо 2', descriptions.dish2)">Подробнее</button>
         </div>
         <div class="menu-item">
             <img src="menu3.jpg" alt="Блюдо 3" onclick="openFullscreen(this.src)">
-            <button class="btn" onclick="openProductPage('menu3.jpg', 'Блюдо 3', 'Описание блюда 3')">Подробнее</button>
+            <button class="btn" onclick="openProductPage('menu3.jpg', 'Блюдо 3', descriptions.dish3)">Подробнее</button>
         </div>
         <div class="menu-item">
             <img src="menu4.jpg" alt="Блюдо 4" onclick="openFullscreen(this.src)">
-            <button class="btn" onclick="openProductPage('menu4.jpg', 'Блюдо 4', 'Описание блюда 4')">Подробнее</button>
+            <button class="btn" onclick="openProductPage('menu4.jpg', 'Блюдо 4', descriptions.dish4)">Подробнее</button>
         </div>
     </div>
-    
+
     <div id="fullscreen" class="fullscreen-img" onclick="closeFullscreen()">
         <img id="fullscreen-img" src="" alt="Fullscreen Image">
     </div>
@@ -149,6 +160,26 @@
             transform: scale(1.05);
             box-shadow: 8px 8px 16px #babecc, -8px -8px 16px #ffffff;
         }
+        .fullscreen-img {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+        }
+        .fullscreen-img.active {
+            display: flex;
+        }
+        .fullscreen-img img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 15px;
+        }
         .btn {
             display: block;
             margin: 10px auto;
@@ -163,27 +194,6 @@
         }
         .btn:hover {
             background: #0056b3;
-        }
-        .fullscreen-img {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            justify-content: center;
-            align-items: center;
-            z-index: 10;
-            cursor: pointer;
-        }
-        .fullscreen-img.active {
-            display: flex;
-        }
-        .fullscreen-img img {
-            max-width: 90%;
-            max-height: 90%;
-            border-radius: 15px;
         }
     </style>
 </body>
