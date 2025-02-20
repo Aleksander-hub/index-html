@@ -14,17 +14,83 @@
         function closeFullscreen() {
             document.getElementById('fullscreen').classList.remove('active');
         }
+        
+        function openProductPage(imageSrc, title, description) {
+            const newWindow = window.open("", "_blank");
+            newWindow.document.write(`
+                <html lang="ru">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>${title}</title>
+                    <style>
+                        body {
+                            font-family: Arial, sans-serif;
+                            text-align: center;
+                            padding: 20px;
+                        }
+                        img {
+                            max-width: 90%;
+                            height: auto;
+                            border-radius: 15px;
+                            margin-bottom: 20px;
+                        }
+                        h1 {
+                            font-size: 24px;
+                            color: #333;
+                        }
+                        p {
+                            font-size: 18px;
+                            color: #555;
+                        }
+                        .btn {
+                            display: inline-block;
+                            margin-top: 20px;
+                            padding: 10px 20px;
+                            font-size: 18px;
+                            color: #fff;
+                            background: #007bff;
+                            border: none;
+                            border-radius: 5px;
+                            cursor: pointer;
+                            text-decoration: none;
+                        }
+                    </style>
+                </head>
+                <body>
+                    <h1>${title}</h1>
+                    <img src="${imageSrc}" alt="${title}">
+                    <p>${description}</p>
+                    <a href="index.html" class="btn">Вернуться в основное меню</a>
+                </body>
+                </html>
+            `);
+            newWindow.document.close();
+        }
     </script>
 </head>
 <body>
     <div class="background-overlay"></div>
     <h1>Меню</h1>
     <div class="menu">
-        <img src="menu1.jpg" alt="Блюдо 1" onclick="openFullscreen(this.src)">
-        <img src="menu2.jpg" alt="Блюдо 2" onclick="openFullscreen(this.src)">
-        <img src="menu3.jpg" alt="Блюдо 3" onclick="openFullscreen(this.src)">
-        <img src="menu4.jpg" alt="Блюдо 4" onclick="openFullscreen(this.src)">
+        <div class="menu-item">
+            <img src="menu1.jpg" alt="Блюдо 1" onclick="openFullscreen(this.src)">
+            <button class="btn" onclick="openProductPage('menu1.jpg', 'Блюдо 1', 'Описание блюда 1')">Подробнее</button>
+        </div>
+        <div class="menu-item">
+            <img src="menu2.jpg" alt="Блюдо 2" onclick="openFullscreen(this.src)">
+            <button class="btn" onclick="openProductPage('menu2.jpg', 'Блюдо 2', 'Описание блюда 2')">Подробнее</button>
+        </div>
+        <div class="menu-item">
+            <img src="menu3.jpg" alt="Блюдо 3" onclick="openFullscreen(this.src)">
+            <button class="btn" onclick="openProductPage('menu3.jpg', 'Блюдо 3', 'Описание блюда 3')">Подробнее</button>
+        </div>
+        <div class="menu-item">
+            <img src="menu4.jpg" alt="Блюдо 4" onclick="openFullscreen(this.src)">
+            <button class="btn" onclick="openProductPage('menu4.jpg', 'Блюдо 4', 'Описание блюда 4')">Подробнее</button>
+        </div>
     </div>
+    
     <div id="fullscreen" class="fullscreen-img" onclick="closeFullscreen()">
         <img id="fullscreen-img" src="" alt="Fullscreen Image">
     </div>
@@ -67,6 +133,9 @@
             position: relative;
             z-index: 1;
         }
+        .menu-item {
+            text-align: center;
+        }
         .menu img {
             width: 100%;
             height: auto;
@@ -79,6 +148,21 @@
         .menu img:hover {
             transform: scale(1.05);
             box-shadow: 8px 8px 16px #babecc, -8px -8px 16px #ffffff;
+        }
+        .btn {
+            display: block;
+            margin: 10px auto;
+            padding: 10px 15px;
+            font-size: 16px;
+            color: white;
+            background: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .btn:hover {
+            background: #0056b3;
         }
         .fullscreen-img {
             display: none;
