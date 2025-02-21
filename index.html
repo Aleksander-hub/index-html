@@ -141,7 +141,7 @@ body {
 
 .menu {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 1fr; /* Две колонки */
     gap: 3px; /* Отступ между фото */
     justify-content: center;
     padding: 20px;
@@ -151,8 +151,10 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: calc(100% - 2px); /* Отступ от краев */
-    max-width: 230px; /* Уменьшение размера фото */
+    justify-content: center;
+    box-sizing: border-box; /* Исправление расчета ширины */
+    width: 100%; /* Равномерное распределение по колонкам */
+    max-width: 250px; /* Уменьшение размера фото */
     background: #fff;
     padding: 15px;
     border-radius: 10px;
@@ -166,7 +168,7 @@ body {
 }
 
 .menu-item img {
-    width: calc(100% - 2px); /* Отступ от краев */
+    width: 100%; /* Фото теперь заполняет всю ширину карточки */
     height: auto;
     margin-bottom: 3px; /* Вертикальный отступ между фото */
     border-radius: 10px;
@@ -252,9 +254,6 @@ function closeFullscreen() {
     document.getElementById('fullscreen').classList.remove('active');
 }
 </script>
-
-    
-
 
 
     </style>
