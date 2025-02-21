@@ -76,14 +76,14 @@
 
 <!-- Новый раздел "Реклама" -->
 <div class="advertisement">
-    <h2>ре</h2>
+    <h2>Реклама</h2>
     <div class="ad-container">
         <div class="ad-images">
-            <img src="ad99.jpg" alt="Реклама 1" onclick="openFullscreen(this.src)">
-            <img src="ad99.jpg" alt="Реклама 2" onclick="openFullscreen(this.src)">
-            <img src="ad99.jpg" alt="Реклама 3" onclick="openFullscreen(this.src)">
-            <img src="ad99.jpg" alt="Реклама 4" onclick="openFullscreen(this.src)">
-            <img src="ad99.jpg" alt="Реклама 5" onclick="openFullscreen(this.src)">
+            <img src="reklama/ad99.jpg" alt="Реклама 1" onclick="openFullscreen(this)">
+            <img src="reklama/ad99.jpg" alt="Реклама 2" onclick="openFullscreen(this)">
+            <img src="reklama/ad99.jpg" alt="Реклама 3" onclick="openFullscreen(this)">
+            <img src="reklama/ad99.jpg" alt="Реклама 4" onclick="openFullscreen(this)">
+            <img src="reklama/ad99.jpg" alt="Реклама 5" onclick="openFullscreen(this)">
         </div>
     </div>
 
@@ -123,14 +123,12 @@
             justify-content: center;
             align-items: center;
             z-index: 1000;
-
-
-        .fullscreen img {
-            max-width: 95%;
-            max-height: 95%;
         }
-
-            
+        .fullscreen img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+        }
         .fullscreen.active {
             display: flex;
         }
@@ -142,13 +140,10 @@
 </div>
 
 <script>
-function openFullscreen(src) {
+function openFullscreen(imgElement) {
     const fullscreenDiv = document.getElementById('fullscreen');
     const fullscreenImg = document.getElementById('fullscreen-img');
-    setTimeout(() => {
-    fullscreenImg.src = src;
-}, 10);
-
+    fullscreenImg.src = imgElement.src;
     fullscreenDiv.classList.add('active');
 }
 
