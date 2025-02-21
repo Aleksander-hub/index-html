@@ -145,7 +145,10 @@
 function openFullscreen(src) {
     const fullscreenDiv = document.getElementById('fullscreen');
     const fullscreenImg = document.getElementById('fullscreen-img');
+    setTimeout(() => {
     fullscreenImg.src = src;
+}, 10);
+
     fullscreenDiv.classList.add('active');
 }
 
