@@ -114,45 +114,33 @@
 
 
     
+
+
 <h1>Меню</h1>
 
 <div class="menu">
     <div class="menu-item">
-        <img src="menu1.jpg" alt="Блюдо 1" onclick="openFullscreen(this.src)">
+        <img src="menu1.jpg" alt="Блюдо 1" onclick="openFullscreen(this)">
         <button class="btn" onclick="openProductPage('menu1.jpg', 'Блюдо 1', descriptions.dish1)">Подробнее</button>
     </div>
     <div class="menu-item">
-        <img src="menu2.jpg" alt="Блюдо 2" onclick="openFullscreen(this.src)">
+        <img src="menu2.jpg" alt="Блюдо 2" onclick="openFullscreen(this)">
         <button class="btn" onclick="openProductPage('menu2.jpg', 'Блюдо 2', descriptions.dish2)">Подробнее</button>
     </div>
     <div class="menu-item">
-        <img src="menu3.jpg" alt="Блюдо 3" onclick="openFullscreen(this.src)">
+        <img src="menu3.jpg" alt="Блюдо 3" onclick="openFullscreen(this)">
         <button class="btn" onclick="openProductPage('menu3.jpg', 'Блюдо 3', descriptions.dish3)">Подробнее</button>
     </div>
     <div class="menu-item">
-        <img src="menu4.jpg" alt="Блюдо 4" onclick="openFullscreen(this.src)">
+        <img src="menu4.jpg" alt="Блюдо 4" onclick="openFullscreen(this)">
         <button class="btn" onclick="openProductPage('menu4.jpg', 'Блюдо 4', descriptions.dish4)">Подробнее</button>
     </div>
+</div>
 
-    <style>
-
-
-        
-body {
-    background: url('background1.jpg') no-repeat center center fixed;
-    background-size: cover;
-}
-
-h1 {
-    text-align: center;
-    font-size: 28px;
-    margin-top: 20px;
-    color: #333;
-}
-  
+<style>
 .menu {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 15px;
     justify-content: center;
     padding: 20px;
@@ -162,8 +150,8 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: calc(100% - 10px);
-    max-width: 400px;
+    width: 100%;
+    max-width: 300px;
     background: #fff;
     padding: 15px;
     border-radius: 10px;
@@ -208,6 +196,64 @@ h1 {
 .btn:active {
     transform: scale(0.95);
 }
+
+#fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out;
+}
+
+#fullscreen.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+#fullscreen img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+}
+
+#fullscreen .close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+</style>
+
+<div id="fullscreen" onclick="closeFullscreen()">
+    <span class="close">&times;</span>
+    <img id="fullscreen-img" src="" alt="">
+</div>
+
+<script>
+function openFullscreen(imgElement) {
+    const fullscreenDiv = document.getElementById('fullscreen');
+    const fullscreenImg = document.getElementById('fullscreen-img');
+    fullscreenImg.src = imgElement.src;
+    fullscreenDiv.classList.add('active');
+}
+
+function closeFullscreen() {
+    document.getElementById('fullscreen').classList.remove('active');
+}
+</script>
+
+
+
+        
 
 
 
