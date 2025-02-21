@@ -71,9 +71,12 @@
 
 
 
+
+
+
 <!-- Новый раздел "Реклама" -->
 <div class="advertisement">
-    
+    <h2>Реклама</h2>
     <div class="ad-container">
         <div class="ad-images">
             <img src="reklama/ad99.jpg" alt="Реклама 1" onclick="openFullscreen(this.src)">
@@ -109,31 +112,28 @@
             margin-bottom: 20px;
         }
 
-
-
         .fullscreen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
-        
-.fullscreen img {
-    max-width: 90%;
-    max-height: 90%;
-    border-radius: 10px;
-}
-.fullscreen.active {
-    display: flex;
-}
-</style>
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .fullscreen img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+        }
+        .fullscreen.active {
+            display: flex;
+        }
+    </style>
+</div>
 
 <div id="fullscreen" class="fullscreen" onclick="closeFullscreen()">
     <img id="fullscreen-img" src="" alt="Fullscreen Image">
@@ -151,13 +151,11 @@ function closeFullscreen() {
     document.getElementById('fullscreen').classList.remove('active');
 }
 </script>
-</div>
 
 
-        
-    </style>
-</div>
 
+
+    
     
 
 <h1>Меню</h1>
