@@ -87,6 +87,13 @@
         </div>
     </div>
 
+    <!-- Добавляем кликабельное фото с ссылкой -->
+    <div class="clickable-image">
+        <a href="https://example.com" target="_blank">
+            <img src="your-image.jpg" alt="Кликабельное фото" class="clickable-img">
+        </a>
+    </div>
+
     <style>
         .ad-container {
             overflow-x: auto;
@@ -112,6 +119,7 @@
             margin-bottom: 20px;
         }
 
+        /* Стиль для полноэкранного фото */
         .fullscreen {
             position: fixed;
             top: 0;
@@ -132,25 +140,32 @@
         .fullscreen.active {
             display: flex;
         }
+
+        /* Стиль для кликабельного фото */
+        .clickable-img {
+            /* Можно настроить размер картинки */
+            width: 300px; /* Здесь можно изменить ширину */
+            height: auto; /* Высота будет пропорциональна ширине */
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        /* Комментарий: настройте размеры изображения в блоке .clickable-img */
     </style>
 </div>
 
-<div id="fullscreen" class="fullscreen" onclick="closeFullscreen()">
-    <img id="fullscreen-img" src="" alt="Fullscreen Image">
-</div>
-
 <script>
-function openFullscreen(imgElement) {
-    const fullscreenDiv = document.getElementById('fullscreen');
-    const fullscreenImg = document.getElementById('fullscreen-img');
-    fullscreenImg.src = imgElement.src;
-    fullscreenDiv.classList.add('active');
-}
+    function openFullscreen(imgElement) {
+        const fullscreenDiv = document.getElementById('fullscreen');
+        const fullscreenImg = document.getElementById('fullscreen-img');
+        fullscreenImg.src = imgElement.src;
+        fullscreenDiv.classList.add('active');
+    }
 
-function closeFullscreen() {
-    document.getElementById('fullscreen').classList.remove('active');
-}
+    function closeFullscreen() {
+        document.getElementById('fullscreen').classList.remove('active');
+    }
 </script>
+
 
 
 
